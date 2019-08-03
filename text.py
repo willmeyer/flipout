@@ -1,11 +1,23 @@
 import utils
 import time
+from job import Job
+import transitions
 from PIL import ImageFont, ImageDraw
 
 
 FONT_BIG = ImageFont.truetype(utils.rsrc("fonts/VeraBd.ttf"), 15)
 FONT_SMALL = ImageFont.truetype(utils.rsrc("fonts/VeraBd.ttf"), 10)
 
+class TextJob(Job):
+
+    def __init__(self, disp, text):
+        super().__init__(disp)
+        self.text = text
+
+    def do(self):
+        scroll_text(self.disp, self.text)
+        time.sleep(1.0)
+        transitions.HorizontalWipeTransition(self.disp, False).do()
 
 def scroll_text(d, text, large=True):
     """

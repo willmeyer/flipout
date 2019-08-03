@@ -62,11 +62,13 @@ if __name__ == "__main__":
                                                    "renderables/animationframes/ninja-5.png"],
                                                    True, 10, 10)
         #job = animation.AnimatorJob(d, ninja)
-        #job = animation.AnimatorJob(d, invader)
+        job = animation.AnimatorJob(d, invader)
         #job = animation.AnimatorJob(d, noise)
-        job = animation.AnimatorJob(d, rain)
+        #job = animation.AnimatorJob(d, rain)
         #job = clock.ClockJob(d)
         #job = poetry.PoemsJob(d)
+        text.scroll_text(d, "#c1-makers FTW", large=True)
+        #job = text.TextJob(d, "#c1makers XOXO")
         while True:
             run_job(job)
     finally:
